@@ -20,16 +20,20 @@ const initialState: TOrderSlice = {
 };
 
 export const postOrder = createAsyncThunk(
-  'order/post',
-  async (data: string[]) => {
-    const order = await orderBurgerApi(data);
-    return order;
+  'order/postOrder',
+  async (data: string[], { dispatch }) => {
+    dispatch(clearOrderData());
+    const dataOrder = await orderBurgerApi(data);
+    return dataOrder;
   }
 );
 
 export const fetchOrderByNumber = createAsyncThunk(
-  'order/fetchByNumber',
-  async (data: number) => getOrderByNumberApi(data)
+  'order/fetchOrderByNumber',
+  async (numberOrder: number, { dispatch }) => {
+    dispatch(clearOrderData());
+    return getOrderByNumberApi(numberOrder);
+  }
 );
 
 export const orderSlice = createSlice({

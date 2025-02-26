@@ -15,13 +15,11 @@ export const OrderInfo: FC = () => {
   const dispatch = useDispatch();
   const param = useParams();
   const orderData = useSelector(selectOrderData);
-  const number = Number(param);
-
+  const { number } = useParams();
+  const id = Number(number);
   useEffect(() => {
-    if (!orderData) {
-      dispatch(fetchOrderByNumber(number));
-    }
-  }, [dispatch]);
+    dispatch(fetchOrderByNumber(id));
+  }, []);
 
   const ingredients: TIngredient[] = useSelector(selectIngredients);
 
