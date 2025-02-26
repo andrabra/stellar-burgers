@@ -1,4 +1,4 @@
-import { FC, useMemo } from 'react';
+import { FC, useEffect, useMemo } from 'react';
 import { TConstructorIngredient } from '@utils-types';
 import { BurgerConstructorUI } from '@ui';
 import {
@@ -14,6 +14,7 @@ import {
 } from '../../services/slices/orderSlice';
 import { useNavigate } from 'react-router-dom';
 import { selectUser } from '../../services/slices/userSlice';
+import { log } from 'console';
 
 export const BurgerConstructor: FC = () => {
   /** TODO: взять переменные constructorItems, orderRequest и orderModalData из стора */
@@ -39,7 +40,6 @@ export const BurgerConstructor: FC = () => {
   };
 
   const closeOrderModal = () => {
-    dispatch(emptyConstructor());
     dispatch(clearOrderData());
   };
 
@@ -53,7 +53,11 @@ export const BurgerConstructor: FC = () => {
     [constructorItems]
   );
 
-  // return null;
+  useEffect(() => {
+    if (orderModalData) {
+      dispatch(emptyConstructor());
+    }
+  }, [orderModalData, dispatch]);
 
   return (
     <BurgerConstructorUI
