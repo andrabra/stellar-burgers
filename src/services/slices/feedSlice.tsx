@@ -38,11 +38,11 @@ export const feedSlice = createSlice({
         state.error = null;
       })
       .addCase(getFeeds.rejected, (state, action) => {
-        state.isLoading = false;
+        state.isLoading = true;
         state.error = action.error.message as string;
       })
       .addCase(getFeeds.fulfilled, (state, action) => {
-        state.isLoading = true;
+        state.isLoading = false;
         state.orders = action.payload.orders;
         state.feed.total = action.payload.total;
         state.feed.totalToday = action.payload.totalToday;

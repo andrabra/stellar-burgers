@@ -14,7 +14,6 @@ import {
 } from '../../services/slices/orderSlice';
 import { useNavigate } from 'react-router-dom';
 import { selectUser } from '../../services/slices/userSlice';
-import { log } from 'console';
 
 export const BurgerConstructor: FC = () => {
   /** TODO: взять переменные constructorItems, orderRequest и orderModalData из стора */

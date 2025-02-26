@@ -11,8 +11,8 @@ export const Feed: FC = () => {
   const orders: TOrder[] = useSelector(selectOrders);
 
   useEffect(() => {
-    dispatch(getFeeds()), [];
-  });
+    dispatch(getFeeds());
+  }, []);
 
   if (!orders.length) {
     return <Preloader />;
