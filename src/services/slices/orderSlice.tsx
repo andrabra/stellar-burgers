@@ -63,7 +63,6 @@ export const orderSlice = createSlice({
         state.orderData = action.payload.order;
         state.isLoading = false;
         state.orderRequest = false;
-        // dispatch(emptyConstructor());
       })
       .addCase(fetchOrderByNumber.rejected, (state, action) => {
         state.orderRequest = false;
@@ -76,7 +75,7 @@ export const orderSlice = createSlice({
       })
       .addCase(fetchOrderByNumber.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.orderRequest = true;
+        state.orderRequest = false;
         state.orderData = action.payload.orders[0];
       });
   }
