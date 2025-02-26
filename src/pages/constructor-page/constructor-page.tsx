@@ -11,7 +11,6 @@ import { selectIsLoading } from '../../services/slices/ingredientsSlice';
 export const ConstructorPage: FC = () => {
   /** TODO: взять переменную из стора */
   const isIngredientsLoading = useSelector(selectIsLoading);
-  console.log('isIngredientsLoading: ', isIngredientsLoading);
 
   return (
     <>

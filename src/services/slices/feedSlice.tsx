@@ -4,7 +4,6 @@ import { TOrder } from '../../utils/types';
 
 export const getFeeds = createAsyncThunk('orders/get', async () => {
   const fetchFeed = getFeedsApi();
-  console.log(fetchFeed);
   return fetchFeed;
 });
 
