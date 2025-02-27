@@ -36,6 +36,7 @@ export const BurgerConstructor: FC = () => {
       constructorItems.bun._id
     ];
     dispatch(postOrder(orderIngredients));
+    dispatch(emptyConstructor());
   };
 
   const closeOrderModal = () => {
@@ -54,10 +55,9 @@ export const BurgerConstructor: FC = () => {
 
   useEffect(() => {
     if (orderModalData) {
-      dispatch(emptyConstructor());
       dispatch(clearOrderData());
     }
-  }, [orderModalData, dispatch]);
+  }, [dispatch]);
 
   return (
     <BurgerConstructorUI
