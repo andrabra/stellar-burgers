@@ -25,6 +25,7 @@ import { AppHeader, Modal, OrderInfo, IngredientDetails } from '@components';
 import { useDispatch } from '../../services/store';
 import { OrderDetailsUI } from '../ui/order-details';
 import { checkUser } from '../../services/slices/userSlice';
+import { ShowComponent } from '../../pages/show-component/show-component';
 
 const App = () => {
   const location = useLocation();
@@ -92,9 +93,30 @@ const App = () => {
               </ProtectedRoute>
             }
           />
-          <Route path='/feed/:number' element={<OrderInfo />} />
-          <Route path='/ingredients/:id' element={<IngredientDetails />} />
-          <Route path='/profile/orders/:number' element={<OrderInfo />} />
+          <Route
+            path='/feed/:number'
+            element={
+              <ShowComponent title='Детали заказа'>
+                <OrderInfo />
+              </ShowComponent>
+            }
+          />
+          <Route
+            path='/ingredients/:id'
+            element={
+              <ShowComponent title='Детали ингридиента'>
+                <IngredientDetails />
+              </ShowComponent>
+            }
+          />
+          <Route
+            path='/profile/orders/:number'
+            element={
+              <ShowComponent title='Детали заказа'>
+                <OrderInfo />
+              </ShowComponent>
+            }
+          />
           <Route path='' element={<NotFound404 />} />
         </Routes>
 
