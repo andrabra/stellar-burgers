@@ -3,7 +3,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { TIngredient } from '@utils-types';
 import { SerializedError } from '@reduxjs/toolkit';
 
-type TIngredientsSlice = {
+export type TIngredientsSlice = {
   ingredients: TIngredient[];
   isLoading: boolean;
   error: string | null;
