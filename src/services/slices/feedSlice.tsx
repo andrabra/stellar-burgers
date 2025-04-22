@@ -7,7 +7,7 @@ export const getFeeds = createAsyncThunk('orders/get', async () => {
   return fetchFeed;
 });
 
-type TFeedSlice = {
+export type TFeedSlice = {
   orders: TOrder[];
   isLoading: boolean;
   error: string | null;
@@ -17,7 +17,7 @@ type TFeedSlice = {
   };
 };
 
-const initialState: TFeedSlice = {
+export const initialState: TFeedSlice = {
   orders: [],
   isLoading: false,
   error: null,
@@ -38,7 +38,7 @@ export const feedSlice = createSlice({
         state.error = null;
       })
       .addCase(getFeeds.rejected, (state, action) => {
-        state.isLoading = true;
+        state.isLoading = false;
         state.error = action.error.message as string;
       })
       .addCase(getFeeds.fulfilled, (state, action) => {
