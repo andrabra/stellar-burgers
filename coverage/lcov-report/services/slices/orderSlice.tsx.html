@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">70.93% </span>
+                <span class="strong">89.53% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>61/86</span>
+                <span class='fraction'>77/86</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>7/7</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">70.93% </span>
+                <span class="strong">89.53% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>61/86</span>
+                <span class='fraction'>77/86</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -202,32 +202,32 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -240,7 +240,7 @@ import { orderBurgerApi, getOrderByNumberApi } from '../../utils/burger-api';
 import { TOrder } from '../../utils/types';
 import { emptyConstructor } from './burgerContructorSlice';
 &nbsp;
-type TOrderSlice = {
+export type TOrderSlice = {
   orderData: TOrder | null;
   orderRequest: boolean;
   isLoading: boolean;
@@ -248,7 +248,7 @@ type TOrderSlice = {
   fetchOrderById: string | null;
 };
 &nbsp;
-const initialState: TOrderSlice = {
+export const initialState: TOrderSlice = {
   orderData: null,
   orderRequest: false,
   isLoading: false,
@@ -288,32 +288,32 @@ export const orderSlice = createSlice({
   extraReducers: (builder) =&gt; {
     builder
       .addCase(postOrder.rejected, (state, action) =&gt; {
-<span class="cstat-no" title="statement not covered" >        state.orderRequest = false;</span>
-<span class="cstat-no" title="statement not covered" >        state.isLoading = false;</span>
-<span class="cstat-no" title="statement not covered" >        state.postOrderError = action.error.message as string;</span>
+        state.orderRequest = false;
+        state.isLoading = false;
+        state.postOrderError = action.error.message as string;
       })
       .addCase(postOrder.pending, (state) =&gt; {
-<span class="cstat-no" title="statement not covered" >        state.orderRequest = true;</span>
-<span class="cstat-no" title="statement not covered" >        state.isLoading = true;</span>
+        state.orderRequest = true;
+        state.isLoading = true;
       })
       .addCase(postOrder.fulfilled, (state, action) =&gt; {
-<span class="cstat-no" title="statement not covered" >        state.orderData = action.payload.order;</span>
-<span class="cstat-no" title="statement not covered" >        state.isLoading = false;</span>
-<span class="cstat-no" title="statement not covered" >        state.orderRequest = false;</span>
+        state.orderData = action.payload.order;
+        state.isLoading = false;
+        state.orderRequest = false;
       })
       .addCase(fetchOrderByNumber.rejected, (state, action) =&gt; {
-<span class="cstat-no" title="statement not covered" >        state.orderRequest = false;</span>
-<span class="cstat-no" title="statement not covered" >        state.isLoading = false;</span>
-<span class="cstat-no" title="statement not covered" >        state.fetchOrderById = action.error.message as string;</span>
+        state.orderRequest = false;
+        state.isLoading = false;
+        state.fetchOrderById = action.error.message as string;
       })
       .addCase(fetchOrderByNumber.pending, (state) =&gt; {
-<span class="cstat-no" title="statement not covered" >        state.orderRequest = true;</span>
-<span class="cstat-no" title="statement not covered" >        state.isLoading = true;</span>
+        state.orderRequest = true;
+        state.isLoading = true;
       })
       .addCase(fetchOrderByNumber.fulfilled, (state, action) =&gt; {
-<span class="cstat-no" title="statement not covered" >        state.isLoading = false;</span>
-<span class="cstat-no" title="statement not covered" >        state.orderRequest = false;</span>
-<span class="cstat-no" title="statement not covered" >        state.orderData = action.payload.orders[0];</span>
+        state.isLoading = false;
+        state.orderRequest = false;
+        state.orderData = action.payload.orders[0];
       });
   }
 });
@@ -328,7 +328,7 @@ export default orderSlice.reducer;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-04-22T07:14:34.512Z
+                at 2025-04-22T07:22:58.272Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
