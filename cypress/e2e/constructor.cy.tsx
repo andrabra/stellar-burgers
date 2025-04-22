@@ -25,6 +25,11 @@ describe('тест конструктора', () => {
     cy.visit('/');
   });
 
+  afterEach(() => {
+    cy.clearCookie('accessToken');
+    localStorage.removeItem('refreshToken');
+  });
+
   it('работа cy.intercept', () => {
     cy.wait('@getIngredients');
     cy.wait('@user');
