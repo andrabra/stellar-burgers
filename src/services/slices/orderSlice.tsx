@@ -3,7 +3,7 @@ import { orderBurgerApi, getOrderByNumberApi } from '../../utils/burger-api';
 import { TOrder } from '../../utils/types';
 import { emptyConstructor } from './burgerContructorSlice';
 
-type TOrderSlice = {
+export type TOrderSlice = {
   orderData: TOrder | null;
   orderRequest: boolean;
   isLoading: boolean;
@@ -11,7 +11,7 @@ type TOrderSlice = {
   fetchOrderById: string | null;
 };
 
-const initialState: TOrderSlice = {
+export const initialState: TOrderSlice = {
   orderData: null,
   orderRequest: false,
   isLoading: false,
